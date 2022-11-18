@@ -1,0 +1,35 @@
+spring:
+  profiles:
+    group:
+      local: "local,default"
+    active: local
+
+---
+# local
+spring:
+  config:
+    activate:
+      on-profile: local
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/sfs_sds_rotterdam_db?useSSL=false&serverTimezone=Asia/Seoul
+    username: syscon
+    password: "r023866677!"
+
+#  quartz:
+#    job-store-type: jdbc
+#    jdbc:
+#      initialize-schema: never #never, always, embedded
+#      schema: classpath:quartz-schema.sql
+
+  jpa.hibernate.ddl-auto: update
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.type:
+    org.springframework: warn
+    root: warn
+
+---
